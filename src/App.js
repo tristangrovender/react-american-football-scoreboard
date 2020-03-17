@@ -8,6 +8,22 @@ function App() {
     const [lionsScore, setLionsScore] = useState(21);
     const [tigersScore, setTigersScore] = useState(14);
 
+    const homeTouchdown = e => {
+        setLionsScore(lionsScore + 7);
+    };
+
+    const awayTouchdown = e => {
+        setTigersScore(tigersScore + 7);
+    };
+
+    const homeFg = e => {
+        setLionsScore(lionsScore + 3);
+    };
+
+    const awayFg = e => {
+        setTigersScore(tigersScore + 3);
+    };
+
     return (
         <div className="container">
             <section className="scoreboard">
@@ -31,37 +47,23 @@ function App() {
                 <div className="homeButtons">
                     {/* TODO STEP 4 - Now we need to attach our state setter functions to click listeners. */}
                     <button
-                        onClick={() => {
-                            setLionsScore(lionsScore + 7);
-                        }}
+                        onClick={homeTouchdown}
                         className="homeButtons__touchdown"
                     >
                         Home Touchdown
                     </button>
-                    <button
-                        onClick={() => {
-                            setLionsScore(lionsScore + 3);
-                        }}
-                        className="homeButtons__fieldGoal"
-                    >
+                    <button onClick={homeFg} className="homeButtons__fieldGoal">
                         Home Field Goal
                     </button>
                 </div>
                 <div className="awayButtons">
                     <button
-                        onClick={() => {
-                            setTigersScore(tigersScore + 7);
-                        }}
+                        onClick={awayTouchdown}
                         className="awayButtons__touchdown"
                     >
                         Away Touchdown
                     </button>
-                    <button
-                        onClick={() => {
-                            setTigersScore(tigersScore + 3);
-                        }}
-                        className="awayButtons__fieldGoal"
-                    >
+                    <button onClick={awayFg} className="awayButtons__fieldGoal">
                         Away Field Goal
                     </button>
                 </div>
